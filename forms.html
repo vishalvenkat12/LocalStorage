@@ -35,6 +35,14 @@
                 var childEle=document.createElement('li');
                 childEle.textContent=myObj.name+ '-' +myObj.email+ '-' +myObj.age;
                 parEle.appendChild(childEle);
+                var delBtn=document.createElement('input');
+                delBtn.type='button';
+                delBtn.value='Delete';
+                delBtn.onclick=()=>{
+                    localStorage.removeItem(myObj);
+                    parEle.replaceChild(childEle);
+                }
+                childEle.appendChild(delBtn);
             }
         </script>
     </body>
