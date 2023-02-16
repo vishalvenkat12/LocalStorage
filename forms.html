@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login form</title>
+    </head>
+    <body>
+        <form onsubmit="saveToLocalStorage(event)">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"><br>
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age"><br>
+            <button>Submit</button>
+        </form>
+        <script>
+            function saveToLocalStorage(event){
+                event.preventDefault()
+                var name=event.target.name.value;
+                var email=event.target.email.value;
+                var age=event.target.age.value;
+                var myObj={
+                    name:name,
+                    email:email,
+                    age:age,
+                }
+                myObj_serialized=JSON.stringify(myObj);
+                localStorage.setItem('myObj', myObj_serialized);
+            }
+        </script>
+    </body>
+
+</html>
